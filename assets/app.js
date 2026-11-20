@@ -90,8 +90,6 @@ function renderLatest(){
   if (!posts.length) return;
   const latest = [...posts].sort((a, b) => b.date.localeCompare(a.date))[0];
   card.href = 'post/' + latest.slug + '/';
-  const aboutBtn = $('#aboutLatestBtn');
-  if (aboutBtn) aboutBtn.href = 'post/' + latest.slug + '/';
   const img = card.querySelector('img');
   img.src = latest.image; img.alt = latest.title;
   card.querySelector('.latest-date').textContent = fmtDate(latest.date) + ' · ' + latest.category;

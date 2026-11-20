@@ -112,8 +112,6 @@ a{color:var(--accent);text-decoration:none}
 .rules li{font-size:13.8px;line-height:1.6;color:var(--muted);padding-left:16px;position:relative}
 .rules li::before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--accent)}
 .rules li b{color:var(--ink)}
-.about-note{margin-top:16px;font-family:var(--hfont);font-style:italic;font-size:15px;color:var(--coffee)}
-.about-btn{display:inline-block;margin-top:11px;padding:10px 17px;border-radius:999px;background:var(--coffee);color:#fdf6ec;font-weight:600;font-size:13.5px}
 .about-side{padding:24px 26px}
 .about-side h3{font-family:var(--hfont);font-size:18.5px}
 .about-side p{font-size:13.5px;line-height:1.65;color:var(--muted);margin-top:13px}
