@@ -78,6 +78,59 @@ function renderLatest(){
   card.querySelector('.latest-date').textContent = fmtDate(latest.date) + ' · ' + latest.category;
   card.querySelector('.latest-title').textContent = latest.title;
 }
+// Banner hero kiểu "Live Photo": ảnh chuyển động rất nhẹ theo con trỏ chuột (desktop)
+// hoặc theo hướng nghiêng điện thoại (mobile, cảm biến deviceorientation).
+(function heroLivePhoto(){
+  const hero = document.querySelector('.hero');
+  const bg = document.querySelector('.hero-bg');
+  if (!hero || !bg) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  let tx = 0, ty = 0, cx = 0, cy = 0, running = false, visible = true;
+  function loop(){
+    cx += (tx - cx) * 0.055;
+    cy += (ty - cy) * 0.055;
+    bg.style.transform = 'translate(' + cx.toFixed(2) + 'px,' + cy.toFixed(2) + 'px) scale(1.12)';
+    if (visible && (Math.abs(tx - cx) > 0.02 || Math.abs(ty - cy) > 0.02 || tx !== 0 || ty !== 0)) {
+      requestAnimationFrame(loop);
+    } else { running = false; }
+  }
+  function kick(){ if (!running && visible){ running = true; requestAnimationFrame(loop); } }
+  if ('IntersectionObserver' in window){
+    new IntersectionObserver(en => { visible = en[0].isIntersecting; if (visible) kick(); }).observe(hero);
+  }
+  // Desktop: con trỏ chuột di chuyển trên banner
+  hero.addEventListener('pointermove', e => {
+    if (e.pointerType !== 'mouse' && e.pointerType !== 'pen') return;
+    const r = hero.getBoundingClientRect();
+    const nx = ((e.clientX - r.left) / r.width) * 2 - 1;
+    const ny = ((e.clientY - r.top) / r.height) * 2 - 1;
+    tx = -nx * 12; ty = -ny * 8; kick();
+  });
+  hero.addEventListener('pointerleave', () => { tx = 0; ty = 0; kick(); });
+  // Mobile: nghiêng điện thoại (gamma = trái/phải, beta = trước/sau)
+  let base = null;
+  function onOrientation(e){
+    if (e.gamma === null || e.beta === null) return;
+    if (!base) base = { g: e.gamma, b: e.beta };
+    const dx = Math.max(-1, Math.min(1, (e.gamma - base.g) / 14));
+    const dy = Math.max(-1, Math.min(1, (e.beta - base.b) / 14));
+    tx = dx * 12; ty = dy * 9; kick();
+  }
+  if (window.DeviceOrientationEvent){
+    if (typeof DeviceOrientationEvent.requestPermission === 'function'){
+      // iOS: cần người dùng chạm một lần để cấp quyền cảm biến — chạm vào banner là bật, không bật hộp thoại lạ.
+      hero.addEventListener('click', async () => {
+        try {
+          const res = await DeviceOrientationEvent.requestPermission();
+          if (res === 'granted') window.addEventListener('deviceorientation', onOrientation);
+        } catch (_) { /* người dùng không cấp quyền thì thôi, banner đứng yên */ }
+      }, { once: true });
+    } else {
+      window.addEventListener('deviceorientation', onOrientation);
+    }
+  }
+})();
+
 fetch('data/posts.json', { cache: 'no-store' })
   .then(r => r.json())
   .then(d => { posts = d.posts || []; render(); renderLatest(); })
