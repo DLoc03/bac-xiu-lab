@@ -1,6 +1,19 @@
 // Blog nhật ký Bạc Xỉu — trang chủ: tải data/posts.json, lọc theo chủ đề, phân trang 4 bài/trang.
 const PAGE_SIZE = 4;
+// Số bài hiện có — cập nhật con số này mỗi khi đăng bài mới, để skeleton hiện đúng số card của trang 1.
+const EXPECTED_POSTS = 1;
 let posts = [], filter = 'Tất cả', page = 1;
+
+// Skeleton chờ tải: chỉnh số card skeleton trong danh sách cho khớp số bài của trang 1.
+(function syncSkeletons(){
+  const feed = document.querySelector('#feed');
+  if (!feed) return;
+  const want = Math.max(1, Math.min(EXPECTED_POSTS, PAGE_SIZE));
+  const proto = feed.querySelector('.skl');
+  if (!proto) return;
+  while (feed.querySelectorAll('.skl').length < want) feed.appendChild(proto.cloneNode(true));
+  while (feed.querySelectorAll('.skl').length > want) feed.querySelector('.skl').remove();
+})();
 
 const $ = s => document.querySelector(s);
 
@@ -70,7 +83,11 @@ function render(){
 }
 function renderLatest(){
   const card = $('#latestCard');
-  if (!card || !posts.length) return;
+  const skl = $('#latestSkl');
+  if (skl) skl.remove();
+  if (!card) return;
+  card.hidden = false;
+  if (!posts.length) return;
   const latest = [...posts].sort((a, b) => b.date.localeCompare(a.date))[0];
   card.href = 'post/' + latest.slug + '/';
   const img = card.querySelector('img');
@@ -134,4 +151,8 @@ function renderLatest(){
 fetch('data/posts.json', { cache: 'no-store' })
   .then(r => r.json())
   .then(d => { posts = d.posts || []; render(); renderLatest(); })
-  .catch(() => { $('#feed').innerHTML = '<div class="empty">Chưa tải được danh sách bài viết. Bạn thử tải lại trang nhé.</div>'; });
+  .catch(() => {
+    $('#feed').innerHTML = '<div class="empty">Chưa tải được danh sách bài viết. Bạn thử tải lại trang nhé.</div>';
+    const skl = $('#latestSkl'); if (skl) skl.remove();
+    const card = $('#latestCard'); if (card) card.hidden = false;
+  });
