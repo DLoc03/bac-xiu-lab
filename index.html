@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#fdf8f1">
 <title>Blog nhật ký Bạc Xỉu — của Bạc Xỉu Lười</title>
-<meta name="description" content="Nhật ký của một người làm nghề lập trình ở Đà Lạt — những suy nghĩ ngắn, chuyện quán xá, mèo và những buổi sáng nhiều sương. Mỗi bài một tấm ảnh.">
+<meta name="description" content="Nhật ký của một người làm nghề lập trình, rất yêu Đà Lạt — những suy nghĩ ngắn, chuyện quán xá, mèo và những buổi sáng nhiều sương. Mỗi bài một tấm ảnh.">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Blog nhật ký Bạc Xỉu">
 <meta property="og:title" content="Blog nhật ký Bạc Xỉu — của Bạc Xỉu Lười">
-<meta property="og:description" content="Nhật ký của một người làm nghề lập trình ở Đà Lạt — viết thi thoảng, khi có chuyện hay. Mỗi bài một tấm ảnh.">
+<meta property="og:description" content="Nhật ký của một người làm nghề lập trình, rất yêu Đà Lạt — viết thi thoảng, khi có chuyện hay. Mỗi bài một tấm ảnh.">
 <meta property="og:image" content="https://dloc03.github.io/bac-xiu-lab/assets/og-image.jpg">
 <meta property="og:url" content="https://dloc03.github.io/bac-xiu-lab/">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
@@ -20,8 +20,8 @@
 <body>
 <div class="page">
   <header class="nav glass">
-    <div class="logo"><i></i></div>
-    <div class="brand"><b>Blog nhật ký Bạc Xỉu</b><span>của Bạc Xỉu Lười · Đà Lạt</span></div>
+    <img class="hava" src="assets/avatar.jpg" alt="Ảnh đại diện của Bạc Xỉu Lười">
+    <div class="brand"><b>Blog nhật ký Bạc Xỉu</b><span>của Bạc Xỉu Lười · Người yêu Đà Lạt</span></div>
     <nav class="navlinks">
       <a class="on" href="./">Nhật ký</a>
       <a href="https://dloc03.github.io/portfolio/">Portfolio</a>
@@ -37,8 +37,8 @@
       <h1>Blog nhật ký Bạc Xỉu</h1>
       <p>Nhật ký ngắn của Bạc Xỉu Lười — mỗi bài chỉ một bức ảnh, vài dòng suy nghĩ. Viết thi thoảng, khi có chuyện hay để kể.</p>
       <div class="hero-author">
-        <span class="mini-ava">B</span>
-        <span><b>Bạc Xỉu Lười</b><small>Tác giả · Đà Lạt · GMT+7</small></span>
+        <span class="mini-ava"><img src="assets/avatar.jpg" alt="">B</span>
+        <span><b>Bạc Xỉu Lười</b><small>Tác giả · Người yêu Đà Lạt · GMT+7</small></span>
       </div>
     </div>
   </section>
@@ -46,7 +46,7 @@
   <section class="about-row">
     <div class="about-card glass">
       <h2>Về góc nhật ký này</h2>
-      <p>Chào bạn, đây là góc nhật ký nhỏ của Bạc Xỉu Lười — một người làm nghề lập trình ở Đà Lạt. Mình viết ở đây thi thoảng thôi: một suy nghĩ bất chợt, một câu chuyện ở quán cà phê, một buổi sáng nhiều sương, hay một con mèo ghé ngang bàn làm việc.</p>
+      <p>Chào bạn, đây là góc nhật ký nhỏ của Bạc Xỉu Lười — một người làm nghề lập trình, rất yêu Đà Lạt. Mình từng sống và làm việc ở Đà Lạt một thời gian, giờ không còn ở đó nữa, nhưng vẫn mong một ngày được quay lại. Mình viết ở đây thi thoảng thôi: một suy nghĩ bất chợt, một câu chuyện ở quán cà phê, một buổi sáng nhiều sương, hay một con mèo ghé ngang bàn làm việc.</p>
       <ul class="rules">
         <li><b>Bài ngắn kiểu nhật ký</b> — đọc trong lúc chờ đá tan là vừa, không bài dài lê thê.</li>
         <li><b>Mỗi bài đúng 1 tấm ảnh</b> — tấm ảnh đó cũng là ảnh đại diện của bài khi chia sẻ ra ngoài.</li>
@@ -54,15 +54,13 @@
       </ul>
     </div>
     <div class="about-side glass">
-      <h3>Một bài viết — một tấm ảnh</h3>
-      <div class="steps">
-        <div class="step"><b>1 ảnh duy nhất</b><span>của bài viết</span></div>
-        <div class="arrow">→</div>
-        <div class="step"><b>Ảnh bìa</b><span>trên trang chủ</span></div>
-        <div class="arrow">→</div>
-        <div class="step"><b>Ảnh xem trước</b><span>Facebook · Zalo</span></div>
-      </div>
-      <p>Không ảnh bìa riêng, không thư viện ảnh riêng — chọn một tấm thật ưng cho mỗi bài là xong.</p>
+      <h3>Bài viết mới nhất</h3>
+      <a class="latest" id="latestCard" href="post/bai-dau-tien/">
+        <img src="assets/images/bac-xiu-buoi-sang.webp" alt="Bài đầu tiên: vì sao lại có Blog nhật ký Bạc Xỉu">
+        <span class="latest-date">20/11/2026 · Nhật ký</span>
+        <b class="latest-title">Bài đầu tiên: vì sao lại có Blog nhật ký Bạc Xỉu</b>
+        <span class="latest-more">Đọc bài →</span>
+      </a>
     </div>
   </section>
 
@@ -70,12 +68,12 @@
     <aside class="profile glass" id="tac-gia">
       <div class="avatar"><img src="assets/avatar.jpg" alt="Ảnh đại diện của Bạc Xỉu Lười" onerror="this.remove()">B</div>
       <h2>Bạc Xỉu Lười</h2>
-      <div class="role">Người viết nhật ký · Đà Lạt</div>
+      <div class="role">Người viết nhật ký · Rất yêu Đà Lạt</div>
       <p class="bio">Làm nghề lập trình, thích uống Bạc Xỉu Đá, hay ngồi làm việc ở quán cà phê, nuôi mèo và mê Đà Lạt. Blog này là nơi mình thi thoảng viết lại những suy nghĩ và câu chuyện thú vị — ngắn thôi, mỗi bài kèm đúng một tấm ảnh.</p>
       <div class="pstats">
         <div class="pstat"><b id="statPosts">–</b><span>bài nhật ký</span></div>
         <div class="pstat"><b>1</b><span>ảnh mỗi bài</span></div>
-        <div class="pstat"><b>Đà Lạt</b><span>nơi viết</span></div>
+        <div class="pstat"><b>Đà Lạt</b><span>nơi yêu thích</span></div>
       </div>
       <div class="plinks">
         <a href="https://dloc03.github.io/portfolio/">Portfolio của mình <span>↗</span></a>

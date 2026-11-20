@@ -6,7 +6,7 @@ tags: [Bạc xỉu, Đà Lạt, Bắt đầu]
 image: assets/images/bac-xiu-buoi-sang.webp
 ---
 
-Chào bạn, mình là Bạc Xỉu Lười — một người làm nghề lập trình, sống và làm việc ở Đà Lạt, có thói quen bắt đầu ngày mới bằng một ly bạc xỉu đá ở quán cà phê quen.
+Chào bạn, mình là Bạc Xỉu Lười — một người làm nghề lập trình, rất yêu Đà Lạt. Mình từng sống và làm việc ở Đà Lạt một thời gian, giờ không còn ở đó nữa, nhưng vẫn giữ thói quen bắt đầu ngày mới bằng một ly bạc xỉu đá ở quán cà phê quen — và vẫn mong một ngày được quay lại sống ở thành phố sương mù.
 
 Blog này là một góc nhỏ của riêng mình trên internet. Ở đây sẽ không có bài dài hay kiến thức gì to tát — chỉ là thi thoảng, khi có một suy nghĩ hay một câu chuyện thú vị nào đó, mình viết lại vài dòng như viết nhật ký, kèm đúng một tấm ảnh. Ngắn thôi, đọc trong lúc chờ ly bạc xỉu tan đá là vừa.
 

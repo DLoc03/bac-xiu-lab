@@ -68,7 +68,17 @@ function render(){
   info.textContent = 'Trang ' + page + '/' + totalPages + ' · Hiển thị ' + slice.length + ' trong ' + list.length + ' bài';
   pager.appendChild(info);
 }
+function renderLatest(){
+  const card = $('#latestCard');
+  if (!card || !posts.length) return;
+  const latest = [...posts].sort((a, b) => b.date.localeCompare(a.date))[0];
+  card.href = 'post/' + latest.slug + '/';
+  const img = card.querySelector('img');
+  img.src = latest.image; img.alt = latest.title;
+  card.querySelector('.latest-date').textContent = fmtDate(latest.date) + ' · ' + latest.category;
+  card.querySelector('.latest-title').textContent = latest.title;
+}
 fetch('data/posts.json', { cache: 'no-store' })
   .then(r => r.json())
-  .then(d => { posts = d.posts || []; render(); })
+  .then(d => { posts = d.posts || []; render(); renderLatest(); })
   .catch(() => { $('#feed').innerHTML = '<div class="empty">Chưa tải được danh sách bài viết. Bạn thử tải lại trang nhé.</div>'; });
