@@ -1,7 +1,7 @@
 // Blog nhật ký Bạc Xỉu — trang chủ: tải data/posts.json, lọc theo chủ đề, phân trang 4 bài/trang.
 const PAGE_SIZE = 3;
 // Số bài hiện có — cập nhật con số này mỗi khi đăng bài mới, để skeleton hiện đúng số card của trang 1.
-const EXPECTED_POSTS = 2;
+const EXPECTED_POSTS = 3;
 let posts = [], filter = 'Tất cả', page = 1;
 
 // Skeleton chờ tải: chỉnh số card skeleton trong danh sách cho khớp số bài của trang 1.
